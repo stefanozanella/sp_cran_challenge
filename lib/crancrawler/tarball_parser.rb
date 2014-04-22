@@ -7,6 +7,7 @@ module CranCrawler
     INDEXED_FIELDS = [
       "Title",
       "Description",
+      "Author",
     ]
 
     def extract_info(targz)
@@ -18,11 +19,24 @@ module CranCrawler
         end
       end
 
-      pruned(info.first)
+      structured(pruned(info.first))
     end
+
+    private
 
     def pruned(info)
       info.select { |k,v| INDEXED_FIELDS.include? k }
+    end
+
+    def structured(info)
+      info["authors"] = parse_authors(info["Author"])
+      info
+    end
+
+    def parse_authors(authors)
+      authors.split(/,\s*/).map do |author|
+        { "name" => author }
+      end
     end
   end
 end
