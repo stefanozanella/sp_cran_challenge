@@ -3,6 +3,11 @@ require 'httparty'
 
 module CranCrawler
   class PackageParser
+    INDEXED_FIELDS = [
+      "Package",
+      "Version",
+    ]
+
     def packages
       pruned_package_list
     end
@@ -14,7 +19,7 @@ module CranCrawler
     end
 
     def pruned_package_list
-      package_list.map { |pkg| pkg.select { |k,v| k == "Package" } }
+      package_list.map { |pkg| pkg.select { |k,v| INDEXED_FIELDS.include? k } }
     end
   end
 end
