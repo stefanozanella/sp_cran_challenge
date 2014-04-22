@@ -8,7 +8,7 @@ require 'rails/test_help'
 require 'minitest/spec'
 require 'mocha'
 
-require 'spider'
+require 'crancrawler'
 
 class ActiveSupport::TestCase
   # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.

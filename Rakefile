@@ -21,9 +21,17 @@ namespace :test do
     t.pattern = "test/unit/**/*.rb"
     t.verbose = true
   end
+
+  desc "Run the spider integration test suite"
+  Rake::TestTask.new :integration do |t|
+    t.libs << 'lib'
+    t.libs << 'test'
+    t.pattern = "test/spider_integration/**/*.rb"
+    t.verbose = true
+  end
 end
 
-require 'spider'
+require 'crancrawler'
 desc "Crawls the CRAN website to update the list of packages"
 task :crawl => :environment do
   CranCrawler::Spider.new.crawl

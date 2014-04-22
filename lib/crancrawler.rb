@@ -1,0 +1,1 @@
+require 'crancrawler/spider'

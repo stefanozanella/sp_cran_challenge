@@ -14,8 +14,10 @@ module CranCrawler
 
     private
 
+    BASE_URL = "http://cran.r-project.org/src/contrib"
+
     def package_list
-      Dcf.parse HTTParty.get("http://cran.r-project.org/src/contrib/PACKAGES")
+      Dcf.parse HTTParty.get("#{BASE_URL}/PACKAGES")
     end
 
     def pruned_package_list
