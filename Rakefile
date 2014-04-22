@@ -13,6 +13,14 @@ namespace :test do
     t.pattern = "test/end_to_end/**/*.rb"
     t.verbose = true
   end
+
+  desc "Run the unit test suite"
+  Rake::TestTask.new :unit do |t|
+    t.libs << 'lib'
+    t.libs << 'test'
+    t.pattern = "test/unit/**/*.rb"
+    t.verbose = true
+  end
 end
 
 require 'spider'

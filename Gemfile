@@ -13,3 +13,4 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 gem 'treetop-dcf'
 gem 'httparty'
+gem 'mocha', group: :test
