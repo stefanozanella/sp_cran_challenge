@@ -29,7 +29,7 @@ module CranCrawler
     end
 
     def structured(info)
-      info["authors"] = parse_authors(info["Author"])
+      info["authors_attributes"] = parse_authors(info["Author"])
       info
     end
 

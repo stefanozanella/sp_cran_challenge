@@ -7,7 +7,7 @@ module CranCrawler
       let(:package) { {
         "Package" => "abc",
         "Version" => "1.2.3",
-        "authors" => [
+        "authors_attributes" => [
           { "name" => "Author 1" },
           { "name" => "Author 2" },
         ]
@@ -18,6 +18,7 @@ module CranCrawler
         archiver.store(package)
 
         Package.first.authors.length.must_equal 2
+        Package.first.authors.first.name.must_equal "Author 1"
       end
     end
   end
